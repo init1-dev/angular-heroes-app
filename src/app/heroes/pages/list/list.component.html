@@ -2,33 +2,13 @@
 <mat-divider></mat-divider>
 <br>
 
-<div class="row m-0">
-    <mat-card
-        *ngFor="let heroe of heroes"
-        class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4">
-        <mat-card-header>
-            <mat-card-title>{{ heroe.superhero }}</mat-card-title>
-            <mat-card-subtitle>{{ heroe.alter_ego }}</mat-card-subtitle>
-        </mat-card-header>
-    
-        <img mat-card-image src="assets/heroes/{{ heroe.id }}.jpg" alt="{{ heroe.superhero }}">
-    
-        <mat-card-content>
-            <h3>{{ heroe.publisher }}</h3>
-            <p>
-                <strong>Primera aparición:</strong> {{ heroe.first_appearance }}
-                <br>
-                <strong>Personajes: </strong> {{ heroe.characters }}
-            </p>
-        </mat-card-content>
-        <mat-card-actions class="d-flex justify-content-between">
-            <button mat-button color="warn">
-                Leer más...
-            </button>
-    
-            <button mat-button color="info">
-                Editar
-            </button>
-        </mat-card-actions>
-    </mat-card>
+<div class="row m-0 gx-3 p-2">
+    <div 
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-3"
+        *ngFor="let heroe of heroes">
+        <app-heroe-card 
+            [heroe]="heroe"
+            class="animate__animated animate__fadeIn">
+        </app-heroe-card>
+    </div>
 </div>

@@ -1,1 +1,54 @@
-<p>heroe works!</p>
+
+<mat-grid-list cols="1" *ngIf="!heroe; else divHeroe">
+    <mat-grid-tile>
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<ng-template #divHeroe>
+
+    <div class="container-fluid row p-5">
+        <div class="col-md-12 col-lg-6">
+            <h1>{{ heroe.superhero }} <small>- {{ heroe.alter_ego }}</small></h1>
+            <mat-divider></mat-divider>
+            <br>
+            <img class="img-fluid mb-3" [src]="heroe | imagen" alt="{{ heroe.alter_ego }}">
+        </div>
+
+        <div class="col-md-12 col-lg-6">
+            <h1>{{ heroe.publisher }}</h1>
+            <mat-divider></mat-divider>
+
+            <mat-list>
+                
+                <p>
+                    <strong>Primera aparición:</strong><br>{{ heroe.first_appearance }}
+                </p>
+            
+                <p>
+                    <strong>Characters:</strong><br>{{ heroe.characters }}
+                </p>
+            
+            
+                <p>
+                    <strong>Publisher:</strong><br>{{ heroe.publisher }}
+                </p>
+            
+            
+                <p>
+                    <strong>Alter Ego:</strong><br>{{ heroe.alter_ego }}
+                </p>
+                
+
+            </mat-list>
+            
+            <br>
+
+            <button (click)="regresar()"
+                class="btn btn-danger">
+                Regrear
+            </button>
+        </div>
+    </div>
+    
+</ng-template>
