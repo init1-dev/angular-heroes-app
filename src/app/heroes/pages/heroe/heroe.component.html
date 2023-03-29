@@ -7,48 +7,55 @@
 
 <ng-template #divHeroe>
 
-    <div class="container-fluid row p-5">
-        <div class="col-md-12 col-lg-6">
-            <h1>{{ heroe.superhero }} <small>- {{ heroe.alter_ego }}</small></h1>
-            <mat-divider></mat-divider>
-            <br>
-            <img class="img-fluid mb-3" [src]="heroe | imagen" alt="{{ heroe.alter_ego }}">
+    <div class="container-fluid p-5">
+
+        <div class="row col-sm-12 offset-sm-0 col-md-12 offset-md-0 col-lg-10 offset-lg-1 
+                    col-xl-8 offset-xl-2 col-xxl-6 offset-xxl-3">
+
+            <div class="col-sm-12 col-md-6">
+                <h1>{{ heroe.superhero }} <small>- {{ heroe.alter_ego }}</small></h1>
+                <mat-divider></mat-divider>
+
+                <img class="img-fluid mt-3 mb-3" [src]="heroe | imagen" alt="{{ heroe.alter_ego }}">
+            </div>
+
+            <div class="col-sm-12 col-md-6">
+                <h1>{{ heroe.publisher }}</h1>
+                <mat-divider></mat-divider>
+    
+                <mat-list class="mt-2">
+                    
+                    <p>
+                        <strong>Primera aparición:</strong><br>{{ heroe.first_appearance }}
+                    </p>
+                
+                    <p>
+                        <strong>Characters:</strong><br>{{ heroe.characters }}
+                    </p>
+                
+                
+                    <p>
+                        <strong>Publisher:</strong><br>{{ heroe.publisher }}
+                    </p>
+                
+                
+                    <p>
+                        <strong>Alter Ego:</strong><br>{{ heroe.alter_ego }}
+                    </p>
+                    
+    
+                </mat-list>
+                
+                <br>
+    
+                <button (click)="regresar()"
+                    class="btn btn-danger">
+                    Regrear
+                </button>
+            </div>
+
         </div>
 
-        <div class="col-md-12 col-lg-6">
-            <h1>{{ heroe.publisher }}</h1>
-            <mat-divider></mat-divider>
-
-            <mat-list>
-                
-                <p>
-                    <strong>Primera aparición:</strong><br>{{ heroe.first_appearance }}
-                </p>
-            
-                <p>
-                    <strong>Characters:</strong><br>{{ heroe.characters }}
-                </p>
-            
-            
-                <p>
-                    <strong>Publisher:</strong><br>{{ heroe.publisher }}
-                </p>
-            
-            
-                <p>
-                    <strong>Alter Ego:</strong><br>{{ heroe.alter_ego }}
-                </p>
-                
-
-            </mat-list>
-            
-            <br>
-
-            <button (click)="regresar()"
-                class="btn btn-danger">
-                Regrear
-            </button>
-        </div>
     </div>
     
 </ng-template>
