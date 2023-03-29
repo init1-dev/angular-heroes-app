@@ -22,4 +22,8 @@ export class HeroesService {
     return this.http.get<Heroe>( `${this.apiEndpoint}/heroes/${ heroeId }` )
   }
 
+  getSugerencias( termino: string, limit: number = 6 ): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>( `${this.apiEndpoint}/heroes?q=${ termino }&_limit=${ limit }` );
+  }
+
 }

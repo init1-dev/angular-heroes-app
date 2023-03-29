@@ -1,1 +1,55 @@
-<p>search works!</p>
+<!-- <form class="example-form">
+    
+</form> -->
+
+<div class="container-fluid p-5">
+
+    <div class="row col-sm-12 offset-sm-0 col-md-12 offset-md-0 col-lg-10 offset-lg-1 
+                    col-xl-8 offset-xl-2 col-xxl-6 offset-xxl-3">
+
+        <div class="col-sm-12 col-md-6">
+            
+            <h1>Buscador de héroes</h1>
+            <mat-divider></mat-divider>
+            
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+            
+            <h3>Buscador:</h3>
+            Término: {{ termino }}
+            <hr>
+
+            <mat-form-field class="w-100" appearance="fill">
+                <mat-label>Busca tu héroe</mat-label>
+                <input type="text" 
+                       placeholder="Introduce el nombre" 
+                       aria-label="text" 
+                       matInput
+                       [(ngModel)]="termino"
+                       [matAutocomplete]="auto"
+                       (keyup)="onKeyUp()">
+                <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="opcionSeleccionada( $event )">
+                    <div *ngIf="termino !== ''">
+                        <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+                            {{ heroe.superhero }}
+                        </mat-option>
+
+                        <mat-option 
+                            *ngIf="flagBuscar && heroes.length === 0"
+                            [value]="">
+                            No existen resultados con el término '{{ termino }}'
+                        </mat-option>
+                    </div>
+                </mat-autocomplete>
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <pre>{{ heroeSeleccionado | json }}</pre>
+        </div>
+
+    </div>
+
+</div>
