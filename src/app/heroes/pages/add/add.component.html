@@ -1,1 +1,91 @@
-<p>add works!</p>
+
+<div class="container-fluid d-flex flex-wrap mt-5 ps-5 pe-5">
+    
+    <div class="row col-sm-12 offset-sm-0 col-lg-4 offset-lg-1 col-xl-3 offset-xl-2 mb-2">
+    
+        <h1 class="pt-3 m-0">
+            {{ heroe.id ? 'Editar' : 'Añadir' }} héroe<br>
+            <small>{{ heroe.superhero }}</small>
+        </h1>
+    
+        <div class="col-sm-12 col-md-6">
+            
+            <mat-form-field class="w-100">
+                <mat-label>Super Héroe:</mat-label>
+                <input type="text" autocomplete="off"
+                       [(ngModel)]="heroe.superhero"
+                       matInput required>
+            </mat-form-field>
+
+        </div>
+
+        <div class="col-sm-12 col-md-6">
+
+            <mat-form-field class="w-100">
+                <mat-label>Alter Ego:</mat-label>
+                <input type="text" autocomplete="off" 
+                       [(ngModel)]="heroe.alter_ego"
+                       matInput required>
+            </mat-form-field>
+                
+        </div>
+            
+        <mat-form-field class="w-100">
+            <mat-label>Primera aparición:</mat-label>
+            <input type="text" autocomplete="off" 
+                   [(ngModel)]="heroe.first_appearance"
+                   matInput required>
+        </mat-form-field>
+            
+        <mat-form-field class="w-100">
+            <mat-label>Personajes:</mat-label>
+            <input type="text" autocomplete="off" 
+                   [(ngModel)]="heroe.characters"
+                   matInput required>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Creador:</mat-label>
+            <mat-select [(ngModel)]="heroe.publisher" required>
+                <mat-option *ngFor="let publisher of publishers"
+                            [value]="publisher.id">
+                    {{ publisher.desc }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="w-100">
+            <mat-label>Foto url:</mat-label>
+            <input type="url" autocomplete="off"
+                   [(ngModel)]="heroe.alt_img"
+                   matInput required>
+        </mat-form-field>
+
+        <br>
+
+        <div class="button-container">
+            <button mat-raised-button color="primary" (click)="guardar()">
+                <mat-icon>edit</mat-icon>
+                Guardar
+            </button>
+    
+            <button mat-raised-button color="warn"
+                    *ngIf="heroe.id"
+                    (click)="eliminar()">
+                <mat-icon>delete</mat-icon>
+                Borrar
+            </button>
+        </div>
+
+    </div>
+
+    <div class="row col-sm-12 offset-sm-0 col-lg-5 offset-lg-1 col-xl-4 offset-xl-1">
+        
+        <img class="img-fluid img-thumbnail" 
+             [src]="heroe | imagen" alt="{{ heroe.superhero }}"
+            (click)="copyClipboard()"
+            [ngClass]="{heroeImg: heroe.alt_img}">
+
+    </div>
+
+</div>

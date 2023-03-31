@@ -16,7 +16,9 @@
                 <h1>{{ heroe.superhero }} <small>- {{ heroe.alter_ego }}</small></h1>
                 <mat-divider></mat-divider>
 
-                <img class="img-fluid mt-3 mb-3" [src]="heroe | imagen" alt="{{ heroe.alter_ego }}">
+                <img class="img-fluid mt-3 mb-3" [src]="heroe | imagen" 
+                     alt="{{ heroe.alter_ego }}" (click)="copyClipboard()"
+                     [ngClass]="{heroeImg: heroe.alt_img}">
             </div>
 
             <div class="col-sm-12 col-md-6">

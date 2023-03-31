@@ -1,0 +1,20 @@
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .button-container button {
+    width: 50%;
+    max-height: 45px;
+    padding: 5px;
+  }
+  
+  .button-container button:not(:last-child) {
+    margin-right: 15px;
+  }
+
+  .heroeImg{
+    cursor: pointer;
+  }

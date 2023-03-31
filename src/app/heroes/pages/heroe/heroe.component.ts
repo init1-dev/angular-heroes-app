@@ -33,4 +33,10 @@ export class HeroeComponent implements OnInit {
     this.location.back();
   }
 
+  copyClipboard() {
+    if(this.heroe.alt_img){
+      navigator.clipboard.writeText( this.heroe.alt_img! );
+    }
+  }
+
 }

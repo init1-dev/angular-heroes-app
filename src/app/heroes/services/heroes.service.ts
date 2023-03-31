@@ -19,11 +19,23 @@ export class HeroesService {
   }
 
   getHeroe( heroeId: string ): Observable<Heroe> {
-    return this.http.get<Heroe>( `${this.apiEndpoint}/heroes/${ heroeId }` )
+    return this.http.get<Heroe>( `${this.apiEndpoint}/heroes/${ heroeId }` );
+  }
+
+  deleteHeroe( heroeId: string ): Observable<Heroe> {
+    return this.http.delete<Heroe>( `${this.apiEndpoint}/heroes/${ heroeId }` );
   }
 
   getSugerencias( termino: string, limit: number = 6 ): Observable<Heroe[]> {
     return this.http.get<Heroe[]>( `${this.apiEndpoint}/heroes?q=${ termino }&_limit=${ limit }` );
+  }
+
+  agregarHeroe( heroe: Heroe ): Observable<Heroe> {
+    return this.http.post<Heroe>(`${ this.apiEndpoint }/heroes`, heroe);
+  }
+
+  editarHeroe( heroe: Heroe ): Observable<Heroe> {
+    return this.http.put<Heroe>(`${ this.apiEndpoint }/heroes/${ heroe.id }`, heroe);
   }
 
 }
